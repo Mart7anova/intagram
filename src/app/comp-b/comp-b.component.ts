@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ValueService } from 'src/app/services/value.service'
 import { Observable } from 'rxjs'
+import { LoggerService } from 'src/app/services/logger.service'
 
 @Component({
   selector: 'inst-comp-b',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs'
 export class CompBComponent implements OnInit {
   value$ = new Observable()
 
-  constructor(private valueService: ValueService) {}
+  constructor(private valueService: ValueService, private loggerService: LoggerService) {}
 
   ngOnInit(): void {
     this.value$ = this.valueService.value$
@@ -18,5 +19,6 @@ export class CompBComponent implements OnInit {
 
   decValue() {
     this.valueService.dec()
+    this.loggerService.log('add', 'error')
   }
 }
