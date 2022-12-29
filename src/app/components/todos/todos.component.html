@@ -2,4 +2,7 @@
   <h1>{{ todo.title | titlecase }}</h1>
   <p>{{ todo.id }}</p>
   <p>{{ todo.order }}</p>
+  <button (click)="deleteTodo(todo.id)">-</button>
+  <hr />
 </div>
+<button (click)="createTodo()">New todo</button>
